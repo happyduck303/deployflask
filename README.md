@@ -1,5 +1,5 @@
 
-** Requirement sebuah aplikasi : **
+**Requirement sebuah aplikasi :**
 ```
 .
 ├── app.py
