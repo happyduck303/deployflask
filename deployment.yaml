@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flaskapp
+  namespace: taufik-devops
+  labels:
+    app: flaskapp
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: flaskapp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskapp
+  namespace: taufik-devops
+  labels:
+    app: flaskapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flaskapp
+  template:
+    metadata:
+      name: flaskapp
+      labels:
+        app: flaskapp
+    spec:
+      containers:
+        - name: flaskapp
+          image: happyduck/flaskapp:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: 256Mi
+            limits:
+              memory: 512Mi
+          env:
+            - name: DEBUG_MODE
+              value: "1"

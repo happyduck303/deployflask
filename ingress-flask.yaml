@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-flask
+  namespace: taufik-devops
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-dev2
+    #nginx.ingress.kubernetes.io/client_max_body_size: "50m"
+    #ingress.kubernetes.io/client_max_body_size: "50m"
+    ingress.kubernetes.io/proxy-body-size: "50m"
+    #nginx.org/client-max-body-size: "50m"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    #nginx.ingress.kubernetes.io/configuration-snippet: |
+    #more_set_headers "X‐Frame‐Options: SAMEORIGIN";
+spec:
+  tls:
+  - hosts:
+    - taufik.worklifebeyond.com
+    secretName: letsencrypt-dev2-new-2020-2
+  rules:
+  - host: taufik.worklifebeyond.com
+    http:
+      paths:
+      - backend:
+          serviceName: flaskapp
+          servicePort: 80
