@@ -1,5 +1,6 @@
-**command penting**
+**Command penting**
 ```
+
 docker build -t happyduck/flaskapp .
 docker push happyduck/flaskapp:latest
 
