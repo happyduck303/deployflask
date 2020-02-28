@@ -5,8 +5,9 @@
 ├── app.py
 ├── config.py
 └── requirements.txt
-
+```
 **duck@duck:~$ app.py :**
+```
 from flask import Flask
 
 import config
@@ -19,9 +20,9 @@ def hello():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=config.PORT, debug=config.DEBUG_MODE)
-
+```
 **duck@duck:~$ config.py :**
-
+```
 from os import environ as env
 import multiprocessing
 
@@ -33,8 +34,9 @@ bind = ":" + str(PORT)
 workers = multiprocessing.cpu_count() * 2 + 1
 threads = 2 * multiprocessing.cpu_count()
 
-
+```
 **duck@duck:~$ nano requirements.txt :**
+```
 Click==7.0
 Flask==1.0.2
 gunicorn==19.9.0
@@ -45,7 +47,7 @@ Werkzeug==0.14.1
 
 ```
 **duck@duck:~$ nano Dockerfile :**
-
+```
 FROM python:3.6-jessie
 
 RUN apt update
