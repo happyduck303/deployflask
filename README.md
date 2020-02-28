@@ -1,5 +1,5 @@
 
-######Requirement sebuah aplikasi :
+###### Requirement sebuah aplikasi :
 ```
 .
 ├── app.py
@@ -7,7 +7,7 @@
 └── requirements.txt
 ```
 
-######duck@duck:~$ app.py :
+###### duck@duck:~$ app.py :
 ```
 from flask import Flask
 
@@ -23,7 +23,7 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=config.PORT, debug=config.DEBUG_MODE)
 ```
 
-######duck@duck:~$ config.py :
+###### duck@duck:~$ config.py :
 ```
 from os import environ as env
 import multiprocessing
@@ -38,7 +38,7 @@ threads = 2 * multiprocessing.cpu_count()
 ```
 
 
-######duck@duck:~$ nano requirements.txt :
+###### duck@duck:~$ nano requirements.txt :
 ```
 Click==7.0
 Flask==1.0.2
@@ -50,7 +50,7 @@ Werkzeug==0.14.1
 ```
 
 
-######duck@duck:~$ nano Dockerfile :
+###### duck@duck:~$ nano Dockerfile :
 ```
 FROM python:3.6-jessie
 
@@ -67,7 +67,7 @@ CMD ["gunicorn", "app:app", "--config=config.py"]
 ```
 -----------------------------------------------------------------------#
 
-######duck@duck:~$ nano deployment.yaml :
+###### duck@duck:~$ nano deployment.yaml :
 ```
 apiVersion: v1
 kind: Service
@@ -117,7 +117,7 @@ spec:
               value: "1"
 ```
 
-######duck@duck:~$ nano ingress-flask.yaml :
+###### duck@duck:~$ nano ingress-flask.yaml :
 ```
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -150,7 +150,7 @@ spec:
           servicePort: 80
 ```
 
-######Cloud Flare :
+###### Cloud Flare :
 ```
 taufik.worklifebeyond.com point to 163.47.10.224.
 
@@ -161,7 +161,7 @@ Type    Name*   IPv4 address*    TTL    Proxy Status
 ```
 
 
-######Command Penting :
+###### Command Penting :
 ```
 docker build -t happyduck/flaskapp . 
 docker push happyduck/flaskapp:latest
