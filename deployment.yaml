@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
         - name: flaskapp
-          image: happyduck/flaskapp:latest
+          image: gcr.io/wlb-dev/flaskapp:0.2.3-dev
           ports:
             - containerPort: 8080
           resources:
