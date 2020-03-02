@@ -35,6 +35,8 @@ spec:
       labels:
         app: flaskapp
     spec:
+      imagePullSecrets:
+        - name: gcr-json-key
       containers:
         - name: flaskapp
           image: gcr.io/wlb-dev/flaskapp:0.2.3-dev
