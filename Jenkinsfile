@@ -21,13 +21,13 @@
         steps {	
             script {
                 if (env.BRANCH_NAME == 'master'){
-                    sh 'docker build -t happyduck/flaskapp:0.2.$BUILD_NUMBER-dev .'
+                    sh 'docker build -t gcr.io/wlb-dev/flaskapp:0.2.$BUILD_NUMBER-dev .'
                 }
                 else if (env.BRANCH_NAME == 'development'){
-                    sh 'docker build -t happyduck/flaskapp:0.2.$BUILD_NUMBER-dev .'
+                    sh 'docker build -t gcr.io/wlb-dev/flaskapp:0.2.$BUILD_NUMBER-dev .'
                 }
                 else {
-                    sh 'docker build -t happyduck/flaskapp:0.1.$BUILD_NUMBER-PR .'
+                    sh 'docker build -t gcr.io/wlb-dev/flaskapp:0.1.$BUILD_NUMBER-PR .'
                 }
             }		        	
         }	
@@ -36,10 +36,10 @@
             steps {
             script {
                 if (env.BRANCH_NAME == 'master'){
-                    sh 'docker push happyduck/flaskapp:0.2.$BUILD_NUMBER-dev'
+                    sh 'docker push gcr.io/wlb-dev/flaskapp:0.2.$BUILD_NUMBER-dev'
                 }
                 else if (env.BRANCH_NAME == 'development'){
-                    sh 'docker push happyduck/flaskapp:0.2.$BUILD_NUMBER-dev'
+                    sh 'docker push gcr.io/wlb-dev/flaskapp:0.2.$BUILD_NUMBER-dev'
                 }
             }		
         }	      
