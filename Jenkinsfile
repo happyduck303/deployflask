@@ -49,13 +49,13 @@
         post {
             success {
                 mattermostSend channel: '#testing-integration',
-                color: "#2A42EE",
+//                color: "#2A42EE",
                 color: 'good',
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
             }
             failure {
                 mattermostSend channel: '#testing-integration',
-                color: "#2A42EE",
+//                color: "#2A42EE",
                 color: 'bad',
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
             }
