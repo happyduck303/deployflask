@@ -49,7 +49,7 @@
         post {
             success {
                 mattermostSend channel: '#dev-ops',
-                color: '#439FE0',
+                color: '#4037eb',
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
             }    
 
