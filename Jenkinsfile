@@ -49,14 +49,12 @@
         post {
             success {
                 mattermostSend channel: '#dev-ops',
-                icon: 'https://jenkins.io/images/logos/jenkins/256.png',
                 color: '#4037eb',
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
             }    
 
             failure {
                 mattermostSend channel: '#dev-ops',
-                icon: 'https://jenkins.io/images/logos/jenkins/256.png',
                 color: 'danger',
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
             }
