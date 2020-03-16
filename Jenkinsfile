@@ -43,17 +43,19 @@
                 }
             }		
         }	      
-        }
+      }
     }
+        
         post {
             success {
-                slackSend channel: '#taufik-devops',
-                color: 'good',
+                mattermostSend channel: '#dev-ops',
+                color: '#4037eb',
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
-            }
+            }    
+
             failure {
-                slackSend channel: '#taufik-devops',
-                color: 'bad',
+                mattermostSend channel: '#dev-ops',
+                color: 'danger',
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
             }
         }	
