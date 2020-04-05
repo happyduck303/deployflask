@@ -21,7 +21,6 @@ metadata:
   labels:
     app: flaskapp
     name : flaskapp
-    keel.sh/approvals: "1"
     keel.sh/policy: major
     keel.sh/trigger: poll
 spec:
@@ -35,9 +34,11 @@ spec:
       labels:
         app: flaskapp
     spec:
+      imagePullSecrets:
+        - name: gcr-json-key
       containers:
         - name: flaskapp
-          image: happyduck/flaskapp:latest
+          image: gcr.io/wlb-dev/flaskapp:0.2.11-dev
           ports:
             - containerPort: 8080
           resources:
@@ -48,3 +49,10 @@ spec:
           env:
             - name: DEBUG_MODE
               value: "1"
+          volumeMounts:
+          - name: tz-istanbul
+          mountPath: /etc/localtime
+        volumes:
+          - name: tz-istanbul
+          hostPath:
+            path: /usr/share/zoneinfo/Europe/Istanbul
