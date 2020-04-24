@@ -39,7 +39,7 @@ spec:
         - name: gcr-json-key
       containers:
         - name: flaskapp
-          image: gcr.io/wlb-dev/flaskapp:0.2.11-dev
+          image: gcr.io/wlb-dev/flaskapp:0.2.13-dev
           ports:
             - containerPort: 8080
           resources:
